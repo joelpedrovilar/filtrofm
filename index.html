@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FILTRO FM — Escolhemos Diferente</title>
+    <title>FILTRO FM — Uma escolha diferente, a cada música.</title>
 
-    <meta name="description" content="FILTRO FM — Uma escolha diferente, a cada música.">
+    <meta
+        name="description"
+        content="FILTRO FM — Uma escolha diferente, a cada música. Descobrimos novos artistas, novos sons e o que vem a seguir."
+    >
 
     <style>
         * {
@@ -46,7 +49,11 @@
             text-align: center;
             padding: 60px 20px;
             background:
-                radial-gradient(circle at 50% 20%, rgba(255, 110, 0, 0.15), transparent 35%),
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(255, 110, 0, 0.15),
+                    transparent 35%
+                ),
                 #080808;
         }
 
@@ -54,23 +61,24 @@
             max-width: 850px;
         }
 
-        .logo {
-            width: min(360px, 75vw);
-            height: auto;
-            margin-bottom: 35px;
+        .hero-tagline {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            font-weight: 900;
+            margin-bottom: 45px;
         }
 
-        .tagline {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            letter-spacing: 0.35em;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ff5a00,
+                #e6007e
+            );
 
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 40px;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .listen-button {
@@ -79,15 +87,28 @@
             gap: 12px;
             padding: 17px 32px;
             border-radius: 50px;
-            background: linear-gradient(90deg, #ffb300, #ff5a00, #e6007e);
+
+            background: linear-gradient(
+                90deg,
+                #ffb300,
+                #ff5a00,
+                #e6007e
+            );
+
             color: #ffffff;
             font-size: 1.05rem;
             font-weight: 800;
-            transition: transform 0.2s ease;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .listen-button:hover {
             transform: scale(1.04);
+
+            box-shadow:
+                0 10px 35px rgba(230, 0, 126, 0.25);
         }
 
         /* SECTIONS */
@@ -102,24 +123,24 @@
         }
 
         .section-text {
-            max-width: 750px;
+            max-width: 800px;
             font-size: 1.15rem;
             color: #cccccc;
         }
 
-        /* CONCEPT */
+        /* CONCEITO */
 
         .concept {
             background: #111111;
         }
 
-        .highlight {
+        .concept-highlight {
             margin-top: 35px;
             font-size: clamp(1.5rem, 3vw, 2.3rem);
             font-weight: 700;
         }
 
-        /* FILTER */
+        /* O NOSSO FILTRO */
 
         .filter {
             background: #080808;
@@ -127,20 +148,34 @@
 
         .filter-box {
             margin-top: 45px;
+
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+
             gap: 20px;
         }
 
         .filter-card {
             padding: 30px;
+
             border: 1px solid #262626;
             border-radius: 16px;
+
             background: #101010;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .filter-card:hover {
+            transform: translateY(-4px);
+            border-color: #444444;
         }
 
         .filter-card h3 {
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         .filter-card p {
@@ -151,24 +186,36 @@
 
         .player-section {
             background:
-                linear-gradient(135deg, #111111, #171717);
+                linear-gradient(
+                    135deg,
+                    #111111,
+                    #171717
+                );
         }
 
         .player {
             margin-top: 40px;
+
             padding: 35px;
+
             border-radius: 22px;
+
             background: #050505;
             border: 1px solid #292929;
+
             text-align: center;
         }
 
         .live {
             display: inline-block;
+
             margin-bottom: 25px;
             padding: 6px 14px;
+
             border-radius: 20px;
+
             background: #b00020;
+
             font-size: 0.75rem;
             font-weight: 800;
             letter-spacing: 0.15em;
@@ -191,15 +238,25 @@
         .player-button {
             width: 65px;
             height: 65px;
+
             border: 0;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ffb300, #e6007e);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffb300,
+                    #e6007e
+                );
+
             color: #ffffff;
+
             font-size: 1.4rem;
+
             cursor: pointer;
         }
 
-        /* RECENTLY PLAYED */
+        /* JÁ PASSOU PELO FILTRO */
 
         .recent {
             background: #111111;
@@ -212,9 +269,13 @@
 
         .track {
             display: flex;
+
             justify-content: space-between;
+
             gap: 20px;
+
             padding: 18px 5px;
+
             border-bottom: 1px solid #292929;
         }
 
@@ -222,47 +283,56 @@
             color: #888888;
         }
 
-        /* QUOTE */
+        /* FRASE FINAL */
 
         .statement {
             padding: 120px 20px;
+
             text-align: center;
+
             background: #080808;
         }
 
         .statement p {
             font-size: clamp(2rem, 5vw, 4.5rem);
+
             line-height: 1.05;
+
             font-weight: 900;
-            max-width: 900px;
+
+            max-width: 950px;
+
             margin: 0 auto;
         }
 
-        .gradient-text {
-            background: linear-gradient(90deg, #ffb300, #ff5a00, #e6007e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* AD SPACE */
+        /* PUBLICIDADE */
 
         .ad-area {
             padding: 50px 20px;
+
             background: #0b0b0b;
+
             text-align: center;
         }
 
         .ad-placeholder {
             max-width: 900px;
+
             min-height: 90px;
+
             margin: auto;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             border: 1px dashed #333333;
+
             color: #555555;
+
             font-size: 0.8rem;
+
             letter-spacing: 0.15em;
         }
 
@@ -270,8 +340,11 @@
 
         footer {
             padding: 45px 20px;
+
             background: #050505;
+
             border-top: 1px solid #202020;
+
             text-align: center;
         }
 
@@ -306,8 +379,8 @@
                 gap: 3px;
             }
 
-            .hero h1 {
-                margin-bottom: 30px;
+            .hero-tagline {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -321,23 +394,17 @@
 
         <div class="hero-content">
 
-            <!-- Temporariamente usamos texto.
-                 O logotipo oficial será colocado aqui depois. -->
-
-            <div class="tagline">
-                FILTRO FM
-            </div>
-
-            <div class="tagline">
-                ESCOLHEMOS DIFERENTE
-            </div>
-
-            <h1>
+            <div class="hero-tagline">
                 Uma escolha diferente,<br>
-                a cada música.
-            </h1>
+                <span class="gradient-text">
+                    a cada música.
+                </span>
+            </div>
 
-            <a href="#player" class="listen-button">
+            <a
+                href="#player"
+                class="listen-button"
+            >
                 ▶ OUVIR AGORA
             </a>
 
@@ -346,7 +413,7 @@
     </header>
 
 
-    <!-- CONCEITO -->
+    <!-- A FILTRO FM -->
 
     <section class="concept">
 
@@ -357,14 +424,28 @@
             </h2>
 
             <p class="section-text">
-                A FILTRO FM nasceu para fazer diferente.
-                Selecionamos música sem ficar presos ao previsível,
-                cruzando estilos, épocas e artistas para criar uma
-                experiência que nunca é exatamente igual.
+                A FILTRO FM nasce para descobrir o que vem a seguir.
             </p>
 
-            <p class="highlight">
-                Uma escolha diferente, a cada música.
+            <br>
+
+            <p class="section-text">
+                Somos uma rádio focada na música que está a acontecer
+                agora — novos artistas, novos projetos, novos sons e
+                novas formas de fazer música.
+            </p>
+
+            <br>
+
+            <p class="section-text">
+                A nossa programação é construída através de uma seleção
+                musical própria, com espaço para propostas emergentes,
+                artistas recentes e sons que começam agora a ganhar
+                identidade.
+            </p>
+
+            <p class="concept-highlight">
+                Através do nosso filtro, descobrimos o que vem a seguir.
             </p>
 
         </div>
@@ -382,34 +463,47 @@
                 O NOSSO FILTRO
             </h2>
 
-            <p class="section-text">
-                Não procuramos tocar tudo.
-                Procuramos escolher bem.
-            </p>
-
             <div class="filter-box">
 
                 <div class="filter-card">
-                    <h3>DESCUBRIR</h3>
+
+                    <h3>
+                        DESCOBRIR
+                    </h3>
+
                     <p>
-                        Novos sons e artistas que merecem ser ouvidos.
+                        Procuramos artistas e músicas que estão a começar
+                        a marcar o seu espaço.
                     </p>
+
                 </div>
 
-                <div class="filter-card">
-                    <h3>REVISITAR</h3>
-                    <p>
-                        Música que continua a fazer sentido,
-                        independentemente da época.
-                    </p>
-                </div>
 
                 <div class="filter-card">
-                    <h3>ESCOLHER</h3>
+
+                    <h3>
+                        EXPLORAR
+                    </h3>
+
                     <p>
-                        Uma seleção feita com intenção,
-                        sem seguir simplesmente o que é óbvio.
+                        Abrimos espaço a sons, estilos e propostas que
+                        fogem ao circuito mais previsível.
                     </p>
+
+                </div>
+
+
+                <div class="filter-card">
+
+                    <h3>
+                        AVANÇAR
+                    </h3>
+
+                    <p>
+                        Estamos atentos ao que está a acontecer agora —
+                        e ao que pode definir o que vem depois.
+                    </p>
+
                 </div>
 
             </div>
@@ -421,7 +515,10 @@
 
     <!-- PLAYER -->
 
-    <section class="player-section" id="player">
+    <section
+        class="player-section"
+        id="player"
+    >
 
         <div class="container">
 
@@ -437,7 +534,9 @@
 
                 <div class="now-playing">
 
-                    <small>AGORA A TOCAR</small>
+                    <small>
+                        AGORA A TOCAR
+                    </small>
 
                     <strong>
                         FILTRO FM
@@ -445,7 +544,10 @@
 
                 </div>
 
-                <button class="player-button">
+                <button
+                    class="player-button"
+                    aria-label="Reproduzir FILTRO FM"
+                >
                     ▶
                 </button>
 
@@ -456,7 +558,7 @@
     </section>
 
 
-    <!-- RECENTLY PLAYED -->
+    <!-- JÁ PASSOU PELO FILTRO -->
 
     <section class="recent">
 
@@ -469,28 +571,53 @@
             <div class="tracks">
 
                 <div class="track">
-                    <strong>Artista — Música</strong>
-                    <span>há poucos minutos</span>
+                    <strong>
+                        Artista — Música
+                    </strong>
+
+                    <span>
+                        há poucos minutos
+                    </span>
                 </div>
 
                 <div class="track">
-                    <strong>Artista — Música</strong>
-                    <span>há alguns minutos</span>
+                    <strong>
+                        Artista — Música
+                    </strong>
+
+                    <span>
+                        há alguns minutos
+                    </span>
                 </div>
 
                 <div class="track">
-                    <strong>Artista — Música</strong>
-                    <span>há alguns minutos</span>
+                    <strong>
+                        Artista — Música
+                    </strong>
+
+                    <span>
+                        há alguns minutos
+                    </span>
                 </div>
 
                 <div class="track">
-                    <strong>Artista — Música</strong>
-                    <span>há alguns minutos</span>
+                    <strong>
+                        Artista — Música
+                    </strong>
+
+                    <span>
+                        há alguns minutos
+                    </span>
                 </div>
 
                 <div class="track">
-                    <strong>Artista — Música</strong>
-                    <span>há alguns minutos</span>
+                    <strong>
+                        Artista — Música
+                    </strong>
+
+                    <span>
+                        há alguns minutos
+                    </span>
                 </div>
 
             </div>
@@ -500,14 +627,16 @@
     </section>
 
 
-    <!-- STATEMENT -->
+    <!-- FRASE FINAL -->
 
     <section class="statement">
 
         <p>
-            NÃO SEGUIR O ÓBVIO.<br>
+            FILTRO FM
+            <br>
+
             <span class="gradient-text">
-                ESCOLHER DIFERENTE.
+                O futuro não toca sozinho.
             </span>
         </p>
 
@@ -529,10 +658,12 @@
 
     <footer>
 
-        <strong>FILTRO FM</strong>
+        <strong>
+            FILTRO FM
+        </strong>
 
         <span>
-            ESCOLHEMOS DIFERENTE
+            Uma escolha diferente, a cada música.
         </span>
 
     </footer>
