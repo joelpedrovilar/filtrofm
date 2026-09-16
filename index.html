@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FILTRO FM — Escolhemos Diferente</title>
+
+    <meta name="description" content="FILTRO FM — Uma escolha diferente, a cada música.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background:
+                radial-gradient(circle at 50% 20%, rgba(255, 110, 0, 0.15), transparent 35%),
+                #080808;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .logo {
+            width: min(360px, 75vw);
+            height: auto;
+            margin-bottom: 35px;
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            letter-spacing: 0.35em;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+
+        .listen-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 17px 32px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #ffb300, #ff5a00, #e6007e);
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 800;
+            transition: transform 0.2s ease;
+        }
+
+        .listen-button:hover {
+            transform: scale(1.04);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-bottom: 30px;
+        }
+
+        .section-text {
+            max-width: 750px;
+            font-size: 1.15rem;
+            color: #cccccc;
+        }
+
+        /* CONCEPT */
+
+        .concept {
+            background: #111111;
+        }
+
+        .highlight {
+            margin-top: 35px;
+            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            font-weight: 700;
+        }
+
+        /* FILTER */
+
+        .filter {
+            background: #080808;
+        }
+
+        .filter-box {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .filter-card {
+            padding: 30px;
+            border: 1px solid #262626;
+            border-radius: 16px;
+            background: #101010;
+        }
+
+        .filter-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .filter-card p {
+            color: #999999;
+        }
+
+        /* PLAYER */
+
+        .player-section {
+            background:
+                linear-gradient(135deg, #111111, #171717);
+        }
+
+        .player {
+            margin-top: 40px;
+            padding: 35px;
+            border-radius: 22px;
+            background: #050505;
+            border: 1px solid #292929;
+            text-align: center;
+        }
+
+        .live {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #b00020;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+        }
+
+        .now-playing {
+            margin-bottom: 30px;
+        }
+
+        .now-playing small {
+            display: block;
+            color: #888888;
+            margin-bottom: 8px;
+        }
+
+        .now-playing strong {
+            font-size: 1.5rem;
+        }
+
+        .player-button {
+            width: 65px;
+            height: 65px;
+            border: 0;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffb300, #e6007e);
+            color: #ffffff;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* RECENTLY PLAYED */
+
+        .recent {
+            background: #111111;
+        }
+
+        .tracks {
+            margin-top: 35px;
+            border-top: 1px solid #292929;
+        }
+
+        .track {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 18px 5px;
+            border-bottom: 1px solid #292929;
+        }
+
+        .track span {
+            color: #888888;
+        }
+
+        /* QUOTE */
+
+        .statement {
+            padding: 120px 20px;
+            text-align: center;
+            background: #080808;
+        }
+
+        .statement p {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            font-weight: 900;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ffb300, #ff5a00, #e6007e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* AD SPACE */
+
+        .ad-area {
+            padding: 50px 20px;
+            background: #0b0b0b;
+            text-align: center;
+        }
+
+        .ad-placeholder {
+            max-width: 900px;
+            min-height: 90px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #333333;
+            color: #555555;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 45px 20px;
+            background: #050505;
+            border-top: 1px solid #202020;
+            text-align: center;
+        }
+
+        footer strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        footer span {
+            color: #777777;
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .filter-box {
+                grid-template-columns: 1fr;
+            }
+
+            .player {
+                padding: 28px 20px;
+            }
+
+            .track {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .hero h1 {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <!-- Temporariamente usamos texto.
+                 O logotipo oficial será colocado aqui depois. -->
+
+            <div class="tagline">
+                FILTRO FM
+            </div>
+
+            <div class="tagline">
+                ESCOLHEMOS DIFERENTE
+            </div>
+
+            <h1>
+                Uma escolha diferente,<br>
+                a cada música.
+            </h1>
+
+            <a href="#player" class="listen-button">
+                ▶ OUVIR AGORA
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONCEITO -->
+
+    <section class="concept">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                A FILTRO FM
+            </h2>
+
+            <p class="section-text">
+                A FILTRO FM nasceu para fazer diferente.
+                Selecionamos música sem ficar presos ao previsível,
+                cruzando estilos, épocas e artistas para criar uma
+                experiência que nunca é exatamente igual.
+            </p>
+
+            <p class="highlight">
+                Uma escolha diferente, a cada música.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- O NOSSO FILTRO -->
+
+    <section class="filter">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                O NOSSO FILTRO
+            </h2>
+
+            <p class="section-text">
+                Não procuramos tocar tudo.
+                Procuramos escolher bem.
+            </p>
+
+            <div class="filter-box">
+
+                <div class="filter-card">
+                    <h3>DESCUBRIR</h3>
+                    <p>
+                        Novos sons e artistas que merecem ser ouvidos.
+                    </p>
+                </div>
+
+                <div class="filter-card">
+                    <h3>REVISITAR</h3>
+                    <p>
+                        Música que continua a fazer sentido,
+                        independentemente da época.
+                    </p>
+                </div>
+
+                <div class="filter-card">
+                    <h3>ESCOLHER</h3>
+                    <p>
+                        Uma seleção feita com intenção,
+                        sem seguir simplesmente o que é óbvio.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PLAYER -->
+
+    <section class="player-section" id="player">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                ESTÁS A OUVIR FILTRO FM
+            </h2>
+
+            <div class="player">
+
+                <div class="live">
+                    EM DIRETO
+                </div>
+
+                <div class="now-playing">
+
+                    <small>AGORA A TOCAR</small>
+
+                    <strong>
+                        FILTRO FM
+                    </strong>
+
+                </div>
+
+                <button class="player-button">
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECENTLY PLAYED -->
+
+    <section class="recent">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                JÁ PASSOU PELO FILTRO
+            </h2>
+
+            <div class="tracks">
+
+                <div class="track">
+                    <strong>Artista — Música</strong>
+                    <span>há poucos minutos</span>
+                </div>
+
+                <div class="track">
+                    <strong>Artista — Música</strong>
+                    <span>há alguns minutos</span>
+                </div>
+
+                <div class="track">
+                    <strong>Artista — Música</strong>
+                    <span>há alguns minutos</span>
+                </div>
+
+                <div class="track">
+                    <strong>Artista — Música</strong>
+                    <span>há alguns minutos</span>
+                </div>
+
+                <div class="track">
+                    <strong>Artista — Música</strong>
+                    <span>há alguns minutos</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATEMENT -->
+
+    <section class="statement">
+
+        <p>
+            NÃO SEGUIR O ÓBVIO.<br>
+            <span class="gradient-text">
+                ESCOLHER DIFERENTE.
+            </span>
+        </p>
+
+    </section>
+
+
+    <!-- PUBLICIDADE FUTURA -->
+
+    <section class="ad-area">
+
+        <div class="ad-placeholder">
+            ESPAÇO PARA PARCEIROS FILTRO FM
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <strong>FILTRO FM</strong>
+
+        <span>
+            ESCOLHEMOS DIFERENTE
+        </span>
+
+    </footer>
+
+</body>
+</html>
