@@ -128,7 +128,7 @@
       margin-right: 8px;
     }
 
-    /* FILTRO */
+    /* O NOSSO FILTRO */
 
     .filter-section {
       background: #111;
@@ -214,11 +214,13 @@
 
   <header>
     <div class="container">
+
       <img
         src="filtro-fm-logo[1].png"
         alt="FILTRO FM"
         class="logo"
       >
+
     </div>
   </header>
 
@@ -226,6 +228,7 @@
   <!-- PLAYER -->
 
   <section class="player-section">
+
     <div class="container">
 
       <div class="section-title">
@@ -233,20 +236,25 @@
       </div>
 
       <audio id="stream" controls>
+
         <source
           src="https://radio.sonicpanel.ro:8028/stream"
           type="audio/mpeg"
         >
+
         O teu navegador não suporta o player de áudio.
+
       </audio>
 
     </div>
+
   </section>
 
 
   <!-- AGORA A TOCAR -->
 
   <section class="now-playing">
+
     <div class="container">
 
       <div class="now-playing-box">
@@ -266,12 +274,14 @@
       </div>
 
     </div>
+
   </section>
 
 
   <!-- HISTÓRICO -->
 
   <section class="history">
+
     <div class="container">
 
       <div class="history-header">
@@ -287,12 +297,15 @@
       </div>
 
       <div id="history-list" class="history-list">
+
         <div class="history-item">
           A carregar...
         </div>
+
       </div>
 
     </div>
+
   </section>
 
 
@@ -309,27 +322,41 @@
       <div class="filter-grid">
 
         <div class="filter-card">
-          <h3>DESCOBRIR</h3>
+
+          <h3>
+            DESCOBRIR
+          </h3>
 
           <p>
             Procuramos artistas e músicas que estão a começar a marcar o seu espaço.
           </p>
+
         </div>
 
+
         <div class="filter-card">
-          <h3>EXPLORAR</h3>
+
+          <h3>
+            EXPLORAR
+          </h3>
 
           <p>
             Abrimos espaço a sons, estilos e propostas que fogem ao circuito mais previsível.
           </p>
+
         </div>
 
+
         <div class="filter-card">
-          <h3>AVANÇAR</h3>
+
+          <h3>
+            AVANÇAR
+          </h3>
 
           <p>
             Estamos atentos ao que está a acontecer agora — e ao que pode definir o que vem depois.
           </p>
+
         </div>
 
       </div>
@@ -339,7 +366,7 @@
   </section>
 
 
-  <!-- FINAL -->
+  <!-- MENSAGEM FINAL -->
 
   <section class="final-message">
 
@@ -357,13 +384,21 @@
   <!-- FOOTER -->
 
   <footer>
+
     <div class="container">
       © FILTRO FM
     </div>
+
   </footer>
 
 
   <script>
+
+    /*
+     * ==========================================================
+     * API SONICPANEL
+     * ==========================================================
+     */
 
     const API_URL =
       "https://radio.sonicpanel.ro/cp/get_info.php?p=8028";
@@ -374,14 +409,14 @@
      * NORMALIZAÇÃO
      * ==========================================================
      *
-     * Transforma:
+     * Exemplos:
      *
      * FILTRO_FM
      * FILTRO FM
      * filtro-fm
      * Filtro.FM
      *
-     * numa forma comparável.
+     * passam a ser comparáveis.
      */
 
     function normalizeText(text) {
@@ -392,26 +427,19 @@
 
       return String(text)
 
-        // HTML básico
         .replace(/<br\s*\/?>/gi, " ")
 
-        // underscore para espaço
         .replace(/_/g, " ")
 
-        // hífens para espaço
         .replace(/[-–—]/g, " ")
 
-        // pontos para espaço
         .replace(/\./g, " ")
 
-        // remove acentos
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
 
-        // tudo minúsculo
         .toLowerCase()
 
-        // remove espaços duplicados
         .replace(/\s+/g, " ")
 
         .trim();
@@ -426,7 +454,7 @@
 
     const FILTERED_ITEMS = [
 
-      // Nomes atuais dos jingles da FILTRO FM
+      /* Jingles FILTRO FM */
 
       "filtro fm",
 
@@ -436,7 +464,8 @@
 
       "filtramos a musica",
 
-      // termos genéricos para futuros jingles
+
+      /* Filtros genéricos */
 
       "jingle",
       "jingles",
@@ -476,13 +505,15 @@
 
     /*
      * ==========================================================
-     * VERIFICAR SE É JINGLE
+     * VERIFICAR SE É JINGLE / PROMO / ID
      * ==========================================================
      */
 
     function isFilteredItem(track) {
 
-      const normalized = normalizeText(track);
+      const normalized =
+        normalizeText(track);
+
 
       if (!normalized) {
         return true;
@@ -490,13 +521,14 @@
 
 
       /*
-       * Primeiro verifica os nomes conhecidos.
+       * Verificar nomes conhecidos
        */
 
       for (const item of FILTERED_ITEMS) {
 
         const normalizedFilter =
           normalizeText(item);
+
 
         if (
           normalized === normalizedFilter ||
@@ -512,36 +544,41 @@
 
       /*
        * ========================================================
-       * DETECÇÃO EXTRA
+       * DETEÇÃO DE TÍTULOS REPETIDOS
        * ========================================================
        *
-       * O SonicPanel está a devolver os jingles neste formato:
+       * Exemplo:
        *
        * FILTRO FM FILTRO FM
        *
        * Escolhemos Diferente Escolhemos Diferente
        *
        * Nos Filtramos Tu Ouves Nos Filtramos Tu Ouves
-       *
-       * Portanto, se o título tiver uma sequência repetida,
-       * também tratamos como possível jingle.
        */
 
       const words =
         normalized.split(" ");
+
 
       if (words.length >= 2) {
 
         const middle =
           Math.floor(words.length / 2);
 
+
         if (words.length % 2 === 0) {
 
           const firstHalf =
-            words.slice(0, middle).join(" ");
+            words
+              .slice(0, middle)
+              .join(" ");
+
 
           const secondHalf =
-            words.slice(middle).join(" ");
+            words
+              .slice(middle)
+              .join(" ");
+
 
           if (
             firstHalf.length > 2 &&
@@ -559,20 +596,28 @@
 
       /*
        * ========================================================
-       * PADRÕES DE JINGLE
+       * PADRÕES GENÉRICOS
        * ========================================================
        */
 
       const jinglePatterns = [
 
         /\bjingle\b/,
+
         /\bpromo\b/,
+
         /\bpromocao\b/,
+
         /\bsweeper\b/,
+
         /\bliner\b/,
+
         /\bstation\s*id\b/,
+
         /\bradio\s*id\b/,
+
         /\bvinheta\b/,
+
         /\bidentificacao\b/
 
       ];
@@ -588,12 +633,13 @@
 
 
       return false;
+
     }
 
 
     /*
      * ==========================================================
-     * EXTRAIR TEXTO DO HISTÓRICO
+     * LIMPAR ITEM DO HISTÓRICO
      * ==========================================================
      */
 
@@ -603,16 +649,15 @@
         return "";
       }
 
-      let text =
-        String(item)
 
-          .replace(/<br\s*\/?>/gi, "")
+      return String(item)
 
-          .replace(/^\s*\d+\.\)\s*/i, "")
+        .replace(/<br\s*\/?>/gi, "")
 
-          .trim();
+        .replace(/^\s*\d+\.\)\s*/i, "")
 
-      return text;
+        .trim();
+
     }
 
 
@@ -633,7 +678,7 @@
 
 
       /*
-       * Se for jingle, NÃO alteramos o que está no site.
+       * Se for jingle, não altera o que está no site.
        */
 
       if (isFilteredItem(title)) {
@@ -643,17 +688,16 @@
       }
 
 
-      lastValidTitle = title;
+      lastValidTitle =
+        title;
 
 
       /*
-       * Tentamos separar artista e música.
-       *
-       * Se não houver separador, colocamos o título
-       * completo como música.
+       * Separar artista e música
        */
 
       let artist = "";
+
       let song = title;
 
 
@@ -666,6 +710,7 @@
         artist =
           parts.shift().trim();
 
+
         song =
           parts.join(" - ").trim();
 
@@ -675,8 +720,10 @@
       document.getElementById("artist").textContent =
         artist || "FILTRO FM";
 
+
       document.getElementById("song").textContent =
         song || title;
+
     }
 
 
@@ -693,9 +740,7 @@
 
 
       if (!Array.isArray(history)) {
-
         return;
-
       }
 
 
@@ -714,7 +759,7 @@
 
 
         /*
-         * IGNORA JINGLES
+         * Ignorar jingles/promos/IDs
          */
 
         if (isFilteredItem(item)) {
@@ -723,7 +768,7 @@
 
 
         /*
-         * Evita músicas repetidas no histórico visual.
+         * Evitar músicas repetidas
          */
 
         const normalized =
@@ -731,8 +776,9 @@
 
 
         const alreadyExists =
-          validTracks.some(track =>
-            normalizeText(track) === normalized
+          validTracks.some(
+            track =>
+              normalizeText(track) === normalized
           );
 
 
@@ -745,7 +791,7 @@
 
 
         /*
-         * Queremos apenas 5 músicas válidas.
+         * Mostrar apenas 5 músicas válidas
          */
 
         if (validTracks.length >= 5) {
@@ -756,7 +802,7 @@
 
 
       /*
-       * Se não houver músicas válidas.
+       * Se não houver músicas
        */
 
       if (validTracks.length === 0) {
@@ -768,11 +814,12 @@
         `;
 
         return;
+
       }
 
 
       /*
-       * Criar HTML.
+       * Criar lista
        */
 
       historyList.innerHTML =
@@ -781,21 +828,25 @@
 
             return `
               <div class="history-item">
+
                 <span class="history-number">
                   ${index + 1}.
                 </span>
+
                 ${escapeHTML(track)}
+
               </div>
             `;
 
           })
           .join("");
+
     }
 
 
     /*
      * ==========================================================
-     * SEGURANÇA
+     * SEGURANÇA HTML
      * ==========================================================
      */
 
@@ -812,12 +863,13 @@
         .replace(/"/g, "&quot;")
 
         .replace(/'/g, "&#039;");
+
     }
 
 
     /*
      * ==========================================================
-     * ATUALIZAR API
+     * ATUALIZAR DADOS DA RÁDIO
      * ==========================================================
      */
 
@@ -835,7 +887,11 @@
 
 
         if (!response.ok) {
-          throw new Error("API error");
+
+          throw new Error(
+            "Erro ao contactar a API."
+          );
+
         }
 
 
@@ -844,7 +900,7 @@
 
 
         /*
-         * Atualizar música atual.
+         * Atualizar AGORA A TOCAR
          */
 
         if (data.title) {
@@ -857,7 +913,7 @@
 
 
         /*
-         * Atualizar histórico.
+         * Atualizar histórico
          */
 
         if (data.history) {
@@ -883,14 +939,20 @@
 
 
     /*
-     * Primeira atualização
+     * ==========================================================
+     * PRIMEIRA ATUALIZAÇÃO
+     * ==========================================================
      */
 
     updateRadio();
 
 
     /*
-     * Atualizar a cada 10 segundos
+     * ==========================================================
+     * ATUALIZAÇÃO AUTOMÁTICA
+     * ==========================================================
+     *
+     * A cada 10 segundos.
      */
 
     setInterval(
