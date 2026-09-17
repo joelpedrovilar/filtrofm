@@ -51,16 +51,14 @@
             text-decoration: none;
         }
 
-        button {
-            font: inherit;
-        }
-
         .container {
             width: min(var(--max), calc(100% - 40px));
             margin: 0 auto;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             position: absolute;
@@ -91,7 +89,9 @@
             color: white;
         }
 
-        /* HERO */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 100vh;
@@ -160,7 +160,6 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            border: 0;
             border-radius: 999px;
             padding: 17px 28px;
             background:
@@ -207,7 +206,9 @@
             text-transform: uppercase;
         }
 
-        /* SECTIONS */
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             padding: 120px 0;
@@ -242,7 +243,9 @@
             margin-top: 22px;
         }
 
-        /* FILTRO */
+        /* =========================
+           FILTRO
+        ========================= */
 
         .filter-grid {
             display: grid;
@@ -290,7 +293,9 @@
             font-size: 15px;
         }
 
-        /* PLAYER */
+        /* =========================
+           PLAYER
+        ========================= */
 
         .player-section {
             background:
@@ -356,8 +361,11 @@
         }
 
         /*
-         * PLAYER OFICIAL DO SONICPANEL
-         */
+           PLAYER SONICPANEL
+
+           Este é o URL que testámos diretamente
+           no navegador e que confirmou ter som.
+        */
 
         .radio-player {
             width: 100%;
@@ -371,7 +379,9 @@
             font-size: 12px;
         }
 
-        /* HISTORY */
+        /* =========================
+           HISTORY
+        ========================= */
 
         .tracks {
             margin-top: 55px;
@@ -406,7 +416,9 @@
             font-size: 12px;
         }
 
-        /* STATEMENT */
+        /* =========================
+           STATEMENT
+        ========================= */
 
         .statement {
             padding: 160px 0;
@@ -440,7 +452,9 @@
             color: transparent;
         }
 
-        /* PARTNERS */
+        /* =========================
+           PARTNERS
+        ========================= */
 
         .partners {
             text-align: center;
@@ -460,7 +474,9 @@
             text-transform: uppercase;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             border-top: 1px solid var(--line);
@@ -487,7 +503,9 @@
             text-transform: uppercase;
         }
 
-        /* RESPONSIVE */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media (max-width: 800px) {
 
@@ -592,7 +610,9 @@
 
     <main>
 
-        <!-- HERO -->
+        <!-- =========================
+             HERO
+        ========================= -->
 
         <section class="hero">
 
@@ -634,7 +654,9 @@
         </section>
 
 
-        <!-- A FILTRO FM -->
+        <!-- =========================
+             A FILTRO FM
+        ========================= -->
 
         <section id="sobre">
 
@@ -668,7 +690,9 @@
         </section>
 
 
-        <!-- O NOSSO FILTRO -->
+        <!-- =========================
+             O NOSSO FILTRO
+        ========================= -->
 
         <section id="filtro">
 
@@ -756,7 +780,9 @@
         </section>
 
 
-        <!-- PLAYER -->
+        <!-- =========================
+             PLAYER
+        ========================= -->
 
         <section
             class="player-section"
@@ -802,13 +828,10 @@
 
 
                     <!--
-                        PLAYER HTML5 OFICIAL SONICPANEL
+                        PLAYER HTML5 SONICPANEL
 
-                        Stream:
-                        https://radio.sonicpanel.ro:8028/stream
-
-                        Formato:
-                        audio/mpeg
+                        ESTE É O ENDEREÇO QUE TESTÁMOS
+                        DIRETAMENTE NO NAVEGADOR E QUE FUNCIONOU.
                     -->
 
                     <audio
@@ -818,10 +841,9 @@
                         preload="none"
                     >
 
-                      <source
-    src="https://radio.sonicpanel.ro/0/stream"
-    type="audio/mpeg"
->
+                        <source
+                            src="https://radio.sonicpanel.ro:8028/stream"
+                            type="audio/mpeg"
                         >
 
                         O teu navegador não suporta áudio HTML5.
@@ -840,7 +862,9 @@
         </section>
 
 
-        <!-- HISTÓRICO -->
+        <!-- =========================
+             HISTÓRICO
+        ========================= -->
 
         <section>
 
@@ -937,7 +961,9 @@
         </section>
 
 
-        <!-- STATEMENT -->
+        <!-- =========================
+             FRASE FINAL
+        ========================= -->
 
         <section class="statement">
 
@@ -958,7 +984,9 @@
         </section>
 
 
-        <!-- PARCEIROS -->
+        <!-- =========================
+             PARCEIROS
+        ========================= -->
 
         <section class="partners">
 
@@ -983,7 +1011,9 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
 
