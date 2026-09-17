@@ -4,143 +4,181 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FILTRO FM</title>
+  <title>FILTRO FM — Escolhemos Diferente</title>
+
+  <meta
+    name="description"
+    content="FILTRO FM — Uma rádio focada no que está a acontecer agora. Novos artistas, novos sons e novas propostas."
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111111;
+      background: #080808;
+      color: #ffffff;
       line-height: 1.5;
     }
 
     .container {
-      width: min(1100px, 92%);
+      width: min(1120px, 90%);
       margin: 0 auto;
     }
 
-    /* HEADER */
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
 
     header {
-      padding: 35px 0 20px;
+      background: #080808;
+      padding: 45px 0 25px;
       text-align: center;
     }
 
     .logo {
-      width: min(430px, 85%);
+      width: min(430px, 88%);
       height: auto;
       display: block;
       margin: 0 auto;
     }
 
-    /* PLAYER */
 
-    .player-section {
-      padding: 25px 0 50px;
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 420px;
+      display: flex;
+      align-items: center;
       text-align: center;
+      padding: 70px 0 90px;
+      background:
+        radial-gradient(
+          circle at center,
+          #202020 0%,
+          #101010 40%,
+          #080808 75%
+        );
     }
 
-    .section-title {
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    audio {
-      width: min(500px, 100%);
-      height: 48px;
-    }
-
-    /* AGORA A TOCAR */
-
-    .now-playing {
-      padding: 20px 0 65px;
-    }
-
-    .now-playing-box {
-      border: 1px solid #111;
-      padding: 30px;
-      text-align: center;
-    }
-
-    .now-label {
+    .hero-kicker {
       font-size: 13px;
-      letter-spacing: 2px;
-      font-weight: bold;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      color: #aaaaaa;
+      margin-bottom: 22px;
     }
 
-    .artist {
-      font-size: 25px;
-      font-weight: 800;
-      margin-bottom: 5px;
-    }
-
-    .song {
-      font-size: 18px;
-      color: #444;
-    }
-
-    /* HISTÓRICO */
-
-    .history {
-      padding: 0 0 70px;
-    }
-
-    .history-header {
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 72px);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -2px;
       margin-bottom: 25px;
     }
 
-    .history-title {
-      font-size: 22px;
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #cfcfcf;
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 28px;
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
+      transition: 0.2s ease;
     }
 
-    .history-subtitle {
-      color: #666;
-      margin-top: 3px;
-      font-size: 14px;
+    .hero-button:hover {
+      background: #ffffff;
+      color: #080808;
     }
 
-    .history-list {
-      border-top: 1px solid #111;
+
+    /* =========================================================
+       A FILTRO FM
+       ========================================================= */
+
+    .about {
+      padding: 90px 0;
+      background: #111111;
     }
 
-    .history-item {
-      padding: 15px 5px;
-      border-bottom: 1px solid #ddd;
-      font-size: 15px;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+      align-items: start;
     }
 
-    .history-number {
-      font-weight: bold;
-      margin-right: 8px;
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 18px;
     }
 
-    /* O NOSSO FILTRO */
+    .about h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .about-text {
+      color: #c8c8c8;
+      font-size: 17px;
+      max-width: 720px;
+    }
+
+    .about-text p + p {
+      margin-top: 20px;
+    }
+
+
+    /* =========================================================
+       O NOSSO FILTRO
+       ========================================================= */
 
     .filter-section {
-      background: #111;
-      color: white;
-      padding: 70px 0;
+      padding: 90px 0;
+      background: #080808;
     }
 
-    .filter-section h2 {
-      font-size: 28px;
-      margin-bottom: 35px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .filter-header {
+      margin-bottom: 45px;
+    }
+
+    .filter-header h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
     }
 
     .filter-grid {
@@ -150,69 +188,253 @@
     }
 
     .filter-card {
-      border: 1px solid #555;
-      padding: 25px;
+      min-height: 220px;
+      padding: 30px;
+      border: 1px solid #333333;
+      background: #101010;
+    }
+
+    .filter-card-number {
+      font-size: 12px;
+      color: #666666;
+      letter-spacing: 2px;
+      margin-bottom: 35px;
     }
 
     .filter-card h3 {
-      font-size: 17px;
-      margin-bottom: 12px;
+      font-size: 21px;
       letter-spacing: 1px;
+      margin-bottom: 15px;
     }
 
     .filter-card p {
-      color: #ccc;
+      color: #aaaaaa;
+      font-size: 15px;
+    }
+
+
+    /* =========================================================
+       PLAYER
+       ========================================================= */
+
+    .player-section {
+      padding: 90px 0;
+      background: #111111;
+      text-align: center;
+    }
+
+    .player-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 25px;
+    }
+
+    audio {
+      width: min(520px, 100%);
+      height: 52px;
+    }
+
+
+    /* =========================================================
+       AGORA A TOCAR
+       ========================================================= */
+
+    .now-playing {
+      padding: 90px 0;
+      background: #080808;
+    }
+
+    .now-playing-box {
+      border: 1px solid #333333;
+      background: #101010;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .now-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888888;
+      margin-bottom: 25px;
+    }
+
+    .artist {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .song {
+      color: #bbbbbb;
+      font-size: 18px;
+    }
+
+
+    /* =========================================================
+       HISTÓRICO
+       ========================================================= */
+
+    .history {
+      padding: 0 0 90px;
+      background: #080808;
+    }
+
+    .history-header {
+      margin-bottom: 25px;
+    }
+
+    .history-title {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .history-subtitle {
+      color: #777777;
+      margin-top: 5px;
       font-size: 14px;
     }
 
-    /* FINAL */
+    .history-list {
+      border-top: 1px solid #333333;
+    }
+
+    .history-item {
+      padding: 17px 5px;
+      border-bottom: 1px solid #242424;
+      color: #d5d5d5;
+      font-size: 15px;
+    }
+
+    .history-number {
+      display: inline-block;
+      width: 30px;
+      color: #666666;
+      font-weight: 800;
+    }
+
+
+    /* =========================================================
+       PARCEIROS
+       ========================================================= */
+
+    .partners {
+      padding: 70px 0;
+      background: #111111;
+      text-align: center;
+    }
+
+    .partners-title {
+      color: #777777;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .partners h2 {
+      font-size: 20px;
+    }
+
+
+    /* =========================================================
+       MENSAGEM FINAL
+       ========================================================= */
 
     .final-message {
-      padding: 70px 0;
+      padding: 110px 0;
       text-align: center;
+      background: #080808;
     }
 
     .final-message h2 {
-      font-size: 24px;
-      letter-spacing: 1px;
+      font-size: clamp(28px, 5vw, 55px);
+      line-height: 1.1;
+      letter-spacing: -1px;
     }
 
-    /* FOOTER */
+    .final-message p {
+      margin-top: 20px;
+      color: #777777;
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
 
     footer {
-      border-top: 1px solid #ddd;
-      padding: 25px 0;
+      border-top: 1px solid #222222;
+      background: #050505;
+      padding: 30px 0;
       text-align: center;
-      color: #777;
+      color: #666666;
       font-size: 12px;
     }
 
-    @media (max-width: 700px) {
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 750px) {
+
+      header {
+        padding-top: 30px;
+      }
+
+      .hero {
+        min-height: 380px;
+        padding: 60px 0 75px;
+      }
+
+      .about,
+      .filter-section,
+      .player-section,
+      .now-playing {
+        padding: 70px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
 
       .filter-grid {
         grid-template-columns: 1fr;
       }
 
-      .artist {
-        font-size: 21px;
+      .filter-card {
+        min-height: auto;
       }
 
-      .song {
-        font-size: 16px;
+      .final-message {
+        padding: 80px 0;
       }
 
-      .now-playing-box {
-        padding: 25px 15px;
-      }
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- =======================================================
+       HEADER
+       ======================================================== -->
 
   <header>
+
     <div class="container">
 
       <img
@@ -222,20 +444,213 @@
       >
 
     </div>
+
   </header>
 
 
-  <!-- PLAYER -->
 
-  <section class="player-section">
+  <!-- =======================================================
+       HERO
+       ======================================================== -->
+
+  <section class="hero">
 
     <div class="container">
 
-      <div class="section-title">
-        ▶ Player
+      <div class="hero-inner">
+
+        <div class="hero-kicker">
+          ESCOLHEMOS DIFERENTE
+        </div>
+
+        <h1>
+          Uma escolha diferente,<br>
+          a cada música.
+        </h1>
+
+        <p>
+          Música nova, artistas recentes e sons que estão
+          a começar a marcar o seu espaço.
+        </p>
+
+        <a
+          href="#player"
+          class="hero-button"
+        >
+          ▶ OUVIR AGORA
+        </a>
+
       </div>
 
-      <audio id="stream" controls>
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       A FILTRO FM
+       ======================================================== -->
+
+  <section class="about">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <div>
+
+          <div class="eyebrow">
+            A FILTRO FM
+          </div>
+
+          <h2>
+            Descobrir o que vem a seguir.
+          </h2>
+
+        </div>
+
+
+        <div class="about-text">
+
+          <p>
+            A FILTRO FM nasce para descobrir o que vem a seguir.
+          </p>
+
+          <p>
+            Somos uma rádio focada na música que está a acontecer
+            agora — novos artistas, novos projetos, novos sons e
+            novas formas de fazer música.
+          </p>
+
+          <p>
+            A nossa programação é construída através de uma seleção
+            musical própria, com espaço para propostas emergentes,
+            artistas recentes e sons que começam agora a ganhar
+            identidade.
+          </p>
+
+          <p>
+            Através do nosso filtro descobrimos o que vem a seguir.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       O NOSSO FILTRO
+       ======================================================== -->
+
+  <section class="filter-section">
+
+    <div class="container">
+
+      <div class="filter-header">
+
+        <div class="eyebrow">
+          O NOSSO FILTRO
+        </div>
+
+        <h2>
+          Descobrir. Explorar. Avançar.
+        </h2>
+
+      </div>
+
+
+      <div class="filter-grid">
+
+
+        <div class="filter-card">
+
+          <div class="filter-card-number">
+            01
+          </div>
+
+          <h3>
+            DESCOBRIR
+          </h3>
+
+          <p>
+            Procuramos artistas e músicas que estão
+            a começar a marcar o seu espaço.
+          </p>
+
+        </div>
+
+
+        <div class="filter-card">
+
+          <div class="filter-card-number">
+            02
+          </div>
+
+          <h3>
+            EXPLORAR
+          </h3>
+
+          <p>
+            Abrimos espaço a sons, estilos e propostas
+            que fogem ao circuito mais previsível.
+          </p>
+
+        </div>
+
+
+        <div class="filter-card">
+
+          <div class="filter-card-number">
+            03
+          </div>
+
+          <h3>
+            AVANÇAR
+          </h3>
+
+          <p>
+            Estamos atentos ao que está a acontecer agora
+            — e ao que pode definir o que vem depois.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       PLAYER
+       ======================================================== -->
+
+  <section
+    class="player-section"
+    id="player"
+  >
+
+    <div class="container">
+
+      <div class="player-title">
+        FILTRO FM EM DIRETO
+      </div>
+
+
+      <audio
+        id="stream"
+        controls
+        preload="none"
+      >
 
         <source
           src="https://radio.sonicpanel.ro:8028/stream"
@@ -251,7 +666,10 @@
   </section>
 
 
-  <!-- AGORA A TOCAR -->
+
+  <!-- =======================================================
+       AGORA A TOCAR
+       ======================================================== -->
 
   <section class="now-playing">
 
@@ -263,11 +681,17 @@
           AGORA A TOCAR
         </div>
 
-        <div id="artist" class="artist">
+        <div
+          id="artist"
+          class="artist"
+        >
           A carregar...
         </div>
 
-        <div id="song" class="song">
+        <div
+          id="song"
+          class="song"
+        >
           —
         </div>
 
@@ -278,7 +702,10 @@
   </section>
 
 
-  <!-- HISTÓRICO -->
+
+  <!-- =======================================================
+       JÁ PASSOU PELO FILTRO
+       ======================================================== -->
 
   <section class="history">
 
@@ -296,7 +723,11 @@
 
       </div>
 
-      <div id="history-list" class="history-list">
+
+      <div
+        id="history-list"
+        class="history-list"
+      >
 
         <div class="history-item">
           A carregar...
@@ -309,96 +740,72 @@
   </section>
 
 
-  <!-- O NOSSO FILTRO -->
 
-  <section class="filter-section">
+  <!-- =======================================================
+       PARCEIROS
+       ======================================================== -->
+
+  <section class="partners">
 
     <div class="container">
 
-      <h2>
-        O NOSSO FILTRO
-      </h2>
-
-      <div class="filter-grid">
-
-        <div class="filter-card">
-
-          <h3>
-            DESCOBRIR
-          </h3>
-
-          <p>
-            Procuramos artistas e músicas que estão a começar a marcar o seu espaço.
-          </p>
-
-        </div>
-
-
-        <div class="filter-card">
-
-          <h3>
-            EXPLORAR
-          </h3>
-
-          <p>
-            Abrimos espaço a sons, estilos e propostas que fogem ao circuito mais previsível.
-          </p>
-
-        </div>
-
-
-        <div class="filter-card">
-
-          <h3>
-            AVANÇAR
-          </h3>
-
-          <p>
-            Estamos atentos ao que está a acontecer agora — e ao que pode definir o que vem depois.
-          </p>
-
-        </div>
-
+      <div class="partners-title">
+        ESPAÇO
       </div>
+
+      <h2>
+        PARA PARCEIROS FILTRO FM
+      </h2>
 
     </div>
 
   </section>
 
 
-  <!-- MENSAGEM FINAL -->
+
+  <!-- =======================================================
+       MENSAGEM FINAL
+       ======================================================== -->
 
   <section class="final-message">
 
     <div class="container">
 
       <h2>
-        FILTRO FM - O futuro não toca sozinho.
+        FILTRO FM — O futuro não toca sozinho.
       </h2>
+
+      <p>
+        Descobrimos o que vem a seguir.
+      </p>
 
     </div>
 
   </section>
 
 
-  <!-- FOOTER -->
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================== -->
 
   <footer>
 
     <div class="container">
-      © FILTRO FM
+
+      FILTRO FM
+
     </div>
 
   </footer>
 
 
-  <script>
 
-    /*
-     * ==========================================================
-     * API SONICPANEL
-     * ==========================================================
-     */
+  <!-- =======================================================
+       JAVASCRIPT / SONICPANEL
+       ======================================================== -->
+
+  <script>
 
     const API_URL =
       "https://radio.sonicpanel.ro/cp/get_info.php?p=8028";
@@ -409,14 +816,14 @@
      * NORMALIZAÇÃO
      * ==========================================================
      *
-     * Exemplos:
+     * Converte:
      *
      * FILTRO_FM
      * FILTRO FM
      * filtro-fm
      * Filtro.FM
      *
-     * passam a ser comparáveis.
+     * numa forma comparável.
      */
 
     function normalizeText(text) {
@@ -436,6 +843,7 @@
         .replace(/\./g, " ")
 
         .normalize("NFD")
+
         .replace(/[\u0300-\u036f]/g, "")
 
         .toLowerCase()
@@ -443,18 +851,18 @@
         .replace(/\s+/g, " ")
 
         .trim();
+
     }
+
 
 
     /*
      * ==========================================================
-     * JINGLES / IDS / PROMOS A EXCLUIR
+     * JINGLES / IDS / PROMOS
      * ==========================================================
      */
 
     const FILTERED_ITEMS = [
-
-      /* Jingles FILTRO FM */
 
       "filtro fm",
 
@@ -464,31 +872,36 @@
 
       "filtramos a musica",
 
-
-      /* Filtros genéricos */
-
       "jingle",
+
       "jingles",
 
       "station id",
+
       "stationid",
 
       "radio id",
+
       "radioid",
 
       "station identification",
+
       "radio identification",
 
       "promo",
+
       "promos",
 
       "promocao",
+
       "promocoes",
 
       "sweeper",
+
       "sweepers",
 
       "liner",
+
       "liners",
 
       "identificacao da estacao",
@@ -498,14 +911,16 @@
       "identificacao da estacao de radio",
 
       "vinheta",
+
       "vinhetas"
 
     ];
 
 
+
     /*
      * ==========================================================
-     * VERIFICAR SE É JINGLE / PROMO / ID
+     * DETETAR JINGLES
      * ==========================================================
      */
 
@@ -521,7 +936,7 @@
 
 
       /*
-       * Verificar nomes conhecidos
+       * Nomes conhecidos
        */
 
       for (const item of FILTERED_ITEMS) {
@@ -543,9 +958,7 @@
 
 
       /*
-       * ========================================================
-       * DETEÇÃO DE TÍTULOS REPETIDOS
-       * ========================================================
+       * Detetar títulos repetidos.
        *
        * Exemplo:
        *
@@ -595,9 +1008,7 @@
 
 
       /*
-       * ========================================================
-       * PADRÕES GENÉRICOS
-       * ========================================================
+       * Padrões genéricos
        */
 
       const jinglePatterns = [
@@ -637,9 +1048,10 @@
     }
 
 
+
     /*
      * ==========================================================
-     * LIMPAR ITEM DO HISTÓRICO
+     * LIMPAR HISTÓRICO
      * ==========================================================
      */
 
@@ -661,14 +1073,12 @@
     }
 
 
+
     /*
      * ==========================================================
      * AGORA A TOCAR
      * ==========================================================
      */
-
-    let lastValidTitle = "";
-
 
     function updateNowPlaying(title) {
 
@@ -678,7 +1088,7 @@
 
 
       /*
-       * Se for jingle, não altera o que está no site.
+       * Se o título for um jingle, não o mostramos.
        */
 
       if (isFilteredItem(title)) {
@@ -688,18 +1098,14 @@
       }
 
 
-      lastValidTitle =
-        title;
+      let artist = "";
+
+      let song = title;
 
 
       /*
        * Separar artista e música
        */
-
-      let artist = "";
-
-      let song = title;
-
 
       if (title.includes(" - ")) {
 
@@ -725,6 +1131,7 @@
         song || title;
 
     }
+
 
 
     /*
@@ -759,7 +1166,7 @@
 
 
         /*
-         * Ignorar jingles/promos/IDs
+         * Não mostrar jingles.
          */
 
         if (isFilteredItem(item)) {
@@ -768,7 +1175,7 @@
 
 
         /*
-         * Evitar músicas repetidas
+         * Não repetir a mesma música.
          */
 
         const normalized =
@@ -791,7 +1198,7 @@
 
 
         /*
-         * Mostrar apenas 5 músicas válidas
+         * Cinco músicas no histórico.
          */
 
         if (validTracks.length >= 5) {
@@ -800,10 +1207,6 @@
 
       }
 
-
-      /*
-       * Se não houver músicas
-       */
 
       if (validTracks.length === 0) {
 
@@ -817,10 +1220,6 @@
 
       }
 
-
-      /*
-       * Criar lista
-       */
 
       historyList.innerHTML =
         validTracks
@@ -844,9 +1243,10 @@
     }
 
 
+
     /*
      * ==========================================================
-     * SEGURANÇA HTML
+     * SEGURANÇA
      * ==========================================================
      */
 
@@ -867,9 +1267,10 @@
     }
 
 
+
     /*
      * ==========================================================
-     * ATUALIZAR DADOS DA RÁDIO
+     * ATUALIZAR RÁDIO
      * ==========================================================
      */
 
@@ -900,7 +1301,7 @@
 
 
         /*
-         * Atualizar AGORA A TOCAR
+         * Música atual
          */
 
         if (data.title) {
@@ -913,7 +1314,7 @@
 
 
         /*
-         * Atualizar histórico
+         * Histórico
          */
 
         if (data.history) {
@@ -938,21 +1339,18 @@
     }
 
 
+
     /*
-     * ==========================================================
-     * PRIMEIRA ATUALIZAÇÃO
-     * ==========================================================
+     * Primeira atualização
      */
 
     updateRadio();
 
 
+
     /*
-     * ==========================================================
-     * ATUALIZAÇÃO AUTOMÁTICA
-     * ==========================================================
-     *
-     * A cada 10 segundos.
+     * Atualização automática:
+     * 10 segundos.
      */
 
     setInterval(
