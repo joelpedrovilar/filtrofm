@@ -15,7 +15,6 @@
         :root {
             --bg: #080808;
             --bg-soft: #101010;
-            --card: #141414;
             --text: #f5f5f5;
             --muted: #9a9a9a;
             --line: rgba(255,255,255,0.08);
@@ -61,9 +60,7 @@
             margin: 0 auto;
         }
 
-        /* =========================
-           HEADER
-        ========================= */
+        /* HEADER */
 
         header {
             position: absolute;
@@ -94,9 +91,7 @@
             color: white;
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
 
         .hero {
             min-height: 100vh;
@@ -212,9 +207,7 @@
             text-transform: uppercase;
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
+        /* SECTIONS */
 
         section {
             padding: 120px 0;
@@ -249,9 +242,7 @@
             margin-top: 22px;
         }
 
-        /* =========================
-           FILTRO
-        ========================= */
+        /* FILTRO */
 
         .filter-grid {
             display: grid;
@@ -280,12 +271,6 @@
         .filter-card:hover {
             transform: translateY(-6px);
             border-color: rgba(255,90,31,0.35);
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,90,31,0.08),
-                    rgba(255,255,255,0.025)
-                );
         }
 
         .filter-number {
@@ -305,9 +290,7 @@
             font-size: 15px;
         }
 
-        /* =========================
-           PLAYER
-        ========================= */
+        /* PLAYER */
 
         .player-section {
             background:
@@ -393,8 +376,6 @@
 
         .player-button:hover {
             transform: scale(1.05);
-            box-shadow:
-                0 20px 55px rgba(255,70,30,0.35);
         }
 
         .player-button.playing {
@@ -416,13 +397,6 @@
                 box-shadow:
                     0 0 0 0 rgba(255,90,31,0);
             }
-        }
-
-        .player-button .play-icon {
-            border-top-width: 8px;
-            border-bottom-width: 8px;
-            border-left-width: 12px;
-            margin-left: 4px;
         }
 
         .pause-icon {
@@ -487,9 +461,7 @@
             color: #ff8060;
         }
 
-        /* =========================
-           TRACKS
-        ========================= */
+        /* HISTORY */
 
         .tracks {
             margin-top: 55px;
@@ -524,9 +496,7 @@
             font-size: 12px;
         }
 
-        /* =========================
-           STATEMENT
-        ========================= */
+        /* STATEMENT */
 
         .statement {
             padding: 160px 0;
@@ -560,9 +530,7 @@
             color: transparent;
         }
 
-        /* =========================
-           PARTNERS
-        ========================= */
+        /* PARTNERS */
 
         .partners {
             text-align: center;
@@ -582,9 +550,7 @@
             text-transform: uppercase;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
             border-top: 1px solid var(--line);
@@ -611,9 +577,7 @@
             text-transform: uppercase;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================= */
+        /* RESPONSIVE */
 
         @media (max-width: 800px) {
 
@@ -708,10 +672,6 @@
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================= -->
-
     <header>
 
         <nav class="nav">
@@ -725,11 +685,9 @@
     </header>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
-
     <main>
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -756,7 +714,10 @@
                     onclick="startRadio()"
                 >
 
-                    <span class="play-icon"></span>
+                    <span
+                        id="heroPlayIcon"
+                        class="play-icon"
+                    ></span>
 
                     Ouvir agora
 
@@ -771,9 +732,7 @@
         </section>
 
 
-        <!-- =========================
-             A FILTRO FM
-        ========================= -->
+        <!-- A FILTRO FM -->
 
         <section id="sobre">
 
@@ -807,9 +766,7 @@
         </section>
 
 
-        <!-- =========================
-             O NOSSO FILTRO
-        ========================= -->
+        <!-- O NOSSO FILTRO -->
 
         <section id="filtro">
 
@@ -897,9 +854,7 @@
         </section>
 
 
-        <!-- =========================
-             PLAYER
-        ========================= -->
+        <!-- PLAYER -->
 
         <section
             class="player-section"
@@ -1003,9 +958,7 @@
         </section>
 
 
-        <!-- =========================
-             JÁ PASSOU PELO FILTRO
-        ========================= -->
+        <!-- HISTÓRICO -->
 
         <section>
 
@@ -1102,9 +1055,7 @@
         </section>
 
 
-        <!-- =========================
-             STATEMENT
-        ========================= -->
+        <!-- STATEMENT -->
 
         <section class="statement">
 
@@ -1125,9 +1076,7 @@
         </section>
 
 
-        <!-- =========================
-             PARCEIROS
-        ========================= -->
+        <!-- PARCEIROS -->
 
         <section class="partners">
 
@@ -1152,9 +1101,7 @@
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- FOOTER -->
 
     <footer>
 
@@ -1177,14 +1124,11 @@
     </footer>
 
 
-    <!-- =========================
-         AUDIO PLAYER
-    ========================= -->
+    <!-- AUDIO -->
 
     <audio
         id="radioStream"
         preload="none"
-        crossorigin="anonymous"
     ></audio>
 
 
@@ -1192,28 +1136,27 @@
 
         /*
          * FILTRO FM
+         * SonicPanel stream
          *
-         * Stream SonicPanel
+         * URL confirmado no SonicPanel:
+         * https://radio.sonicpanel.ro:8028/stream
          */
 
-     const STREAM_URL =
-    "https://radio.sonicpanel.ro:8028/stream";
-
-
         const STREAM_URL =
-    "https://radio.sonicpanel.ro:8028/stream";
+            "https://radio.sonicpanel.ro:8028/stream";
+
+
+        const audio =
+            document.getElementById("radioStream");
 
         const playerButton =
             document.getElementById("playerButton");
 
-        const playIcon =
-            document.getElementById("playIcon");
+        const playerStatus =
+            document.getElementById("playerStatus");
 
         const playerTitle =
             document.getElementById("playerTitle");
-
-        const playerStatus =
-            document.getElementById("playerStatus");
 
         const playerMessage =
             document.getElementById("playerMessage");
@@ -1225,9 +1168,7 @@
         let isPlaying = false;
 
 
-        /*
-         * Volume inicial
-         */
+        /* Volume */
 
         audio.volume =
             parseFloat(volume.value);
@@ -1244,9 +1185,7 @@
         );
 
 
-        /*
-         * Iniciar rádio
-         */
+        /* OUVIR AGORA */
 
         async function startRadio() {
 
@@ -1266,9 +1205,7 @@
         }
 
 
-        /*
-         * Play / Pause
-         */
+        /* PLAY / PAUSE */
 
         async function toggleRadio() {
 
@@ -1279,24 +1216,17 @@
 
                 try {
 
+                    playerStatus.textContent =
+                        "A ligar à emissão...";
+
+
                     /*
-                     * Só definimos o stream
+                     * O URL é atribuído apenas
                      * quando o utilizador carrega Play.
                      */
 
-                    if (
-                        !audio.src ||
-                        audio.src !== STREAM_URL
-                    ) {
-
-                        audio.src =
-                            STREAM_URL;
-
-                    }
-
-
-                    playerStatus.textContent =
-                        "A ligar à emissão...";
+                    audio.src =
+                        STREAM_URL;
 
 
                     await audio.play();
@@ -1310,16 +1240,21 @@
                 } catch (error) {
 
                     console.error(
-                        "FILTRO FM player:",
+                        "FILTRO FM:",
                         error
                     );
+
+
+                    isPlaying = false;
+
+                    updatePlayerUI();
 
 
                     playerStatus.textContent =
                         "Não foi possível iniciar a emissão.";
 
                     showMessage(
-                        "O navegador não conseguiu iniciar o stream. Tenta novamente.",
+                        "O navegador não conseguiu iniciar o stream. Verifica novamente em alguns segundos.",
                         true
                     );
 
@@ -1338,11 +1273,13 @@
         }
 
 
-        /*
-         * Interface do player
-         */
+        /* INTERFACE */
 
         function updatePlayerUI() {
+
+            const icon =
+                document.getElementById("playIcon");
+
 
             if (isPlaying) {
 
@@ -1351,7 +1288,7 @@
                 );
 
 
-                playIcon.outerHTML = `
+                icon.outerHTML = `
                     <span
                         id="playIcon"
                         class="pause-icon"
@@ -1377,7 +1314,7 @@
                 );
 
 
-                playIcon.outerHTML = `
+                icon.outerHTML = `
                     <span
                         id="playIcon"
                         class="play-icon"
@@ -1397,9 +1334,7 @@
         }
 
 
-        /*
-         * Eventos do áudio
-         */
+        /* ÁUDIO A TOCAR */
 
         audio.addEventListener(
             "playing",
@@ -1414,6 +1349,8 @@
             }
         );
 
+
+        /* PAUSA */
 
         audio.addEventListener(
             "pause",
@@ -1431,6 +1368,8 @@
         );
 
 
+        /* BUFFER */
+
         audio.addEventListener(
             "waiting",
             function () {
@@ -1445,6 +1384,8 @@
             }
         );
 
+
+        /* ERRO */
 
         audio.addEventListener(
             "error",
@@ -1466,9 +1407,7 @@
         );
 
 
-        /*
-         * Mensagens
-         */
+        /* MENSAGENS */
 
         function showMessage(
             message,
@@ -1488,7 +1427,8 @@
 
         function clearMessage() {
 
-            playerMessage.textContent = "";
+            playerMessage.textContent =
+                "";
 
             playerMessage.className =
                 "player-message";
