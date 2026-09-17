@@ -37,7 +37,11 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background:
-                radial-gradient(circle at 50% 0%, rgba(255, 70, 30, 0.10), transparent 32%),
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(255, 70, 30, 0.10),
+                    transparent 32%
+                ),
                 var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -111,11 +115,12 @@
             width: 650px;
             height: 650px;
             border-radius: 50%;
-            background: radial-gradient(
-                circle,
-                rgba(255, 74, 24, 0.13),
-                transparent 68%
-            );
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 74, 24, 0.13),
+                    transparent 68%
+                );
             top: -280px;
             left: 50%;
             transform: translateX(-50%);
@@ -145,11 +150,12 @@
         }
 
         .gradient-text {
-            background: linear-gradient(
-                90deg,
-                var(--accent),
-                var(--accent-2)
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--accent-2)
+                );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -162,24 +168,29 @@
             border: 0;
             border-radius: 999px;
             padding: 17px 28px;
-            background: linear-gradient(
-                90deg,
-                var(--accent),
-                var(--accent-2)
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--accent-2)
+                );
             color: white;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 15px 50px rgba(255, 65, 30, 0.22);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow:
+                0 15px 50px rgba(255, 65, 30, 0.22);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .listen-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 60px rgba(255, 65, 30, 0.35);
+            box-shadow:
+                0 20px 60px rgba(255, 65, 30, 0.35);
         }
 
         .play-icon {
@@ -250,11 +261,12 @@
         }
 
         .filter-card {
-            background: linear-gradient(
-                145deg,
-                rgba(255,255,255,0.06),
-                rgba(255,255,255,0.025)
-            );
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.06),
+                    rgba(255,255,255,0.025)
+                );
             border: 1px solid var(--line);
             border-radius: 22px;
             padding: 34px;
@@ -268,11 +280,12 @@
         .filter-card:hover {
             transform: translateY(-6px);
             border-color: rgba(255,90,31,0.35);
-            background: linear-gradient(
-                145deg,
-                rgba(255,90,31,0.08),
-                rgba(255,255,255,0.025)
-            );
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,90,31,0.08),
+                    rgba(255,255,255,0.025)
+                );
         }
 
         .filter-number {
@@ -360,17 +373,49 @@
             flex: 0 0 74px;
             border-radius: 50%;
             border: 0;
-            background: linear-gradient(
-                135deg,
-                var(--accent),
-                var(--accent-2)
-            );
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-2)
+                );
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 15px 45px rgba(255,70,30,0.22);
+            box-shadow:
+                0 15px 45px rgba(255,70,30,0.22);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .player-button:hover {
+            transform: scale(1.05);
+            box-shadow:
+                0 20px 55px rgba(255,70,30,0.35);
+        }
+
+        .player-button.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow:
+                    0 0 0 0 rgba(255,90,31,0.45);
+            }
+
+            70% {
+                box-shadow:
+                    0 0 0 18px rgba(255,90,31,0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0 rgba(255,90,31,0);
+            }
         }
 
         .player-button .play-icon {
@@ -378,6 +423,18 @@
             border-bottom-width: 8px;
             border-left-width: 12px;
             margin-left: 4px;
+        }
+
+        .pause-icon {
+            display: flex;
+            gap: 5px;
+        }
+
+        .pause-icon span {
+            width: 5px;
+            height: 20px;
+            background: white;
+            border-radius: 2px;
         }
 
         .track-info small {
@@ -397,6 +454,37 @@
         .track-info p {
             color: var(--muted);
             margin-top: 3px;
+        }
+
+        .volume-area {
+            margin-top: 38px;
+            padding-top: 25px;
+            border-top: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .volume-icon {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .volume-slider {
+            width: 160px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        .player-message {
+            margin-top: 18px;
+            min-height: 20px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .player-message.error {
+            color: #ff8060;
         }
 
         /* =========================
@@ -461,11 +549,12 @@
 
         .statement-title span {
             display: block;
-            background: linear-gradient(
-                90deg,
-                var(--accent),
-                var(--accent-2)
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--accent-2)
+                );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -584,6 +673,10 @@
                 display: none;
             }
 
+            .volume-slider {
+                width: 130px;
+            }
+
             .footer-inner {
                 flex-direction: column;
                 align-items: flex-start;
@@ -620,9 +713,15 @@
     ========================= -->
 
     <header>
+
         <nav class="nav">
-            <a href="#filtro" class="nav-link">O nosso filtro</a>
+
+            <a href="#filtro" class="nav-link">
+                O nosso filtro
+            </a>
+
         </nav>
+
     </header>
 
 
@@ -643,13 +742,24 @@
                 >
 
                 <div class="hero-tagline">
+
                     Uma escolha diferente,<br>
-                    <span class="gradient-text">a cada música.</span>
+
+                    <span class="gradient-text">
+                        a cada música.
+                    </span>
+
                 </div>
 
-                <button class="listen-button" onclick="scrollToPlayer()">
+                <button
+                    class="listen-button"
+                    onclick="startRadio()"
+                >
+
                     <span class="play-icon"></span>
+
                     Ouvir agora
+
                 </button>
 
             </div>
@@ -722,12 +832,16 @@
                         </div>
 
                         <div>
-                            <h3>Descobrir</h3>
+
+                            <h3>
+                                Descobrir
+                            </h3>
 
                             <p>
                                 Procuramos artistas e músicas que estão a começar
                                 a marcar o seu espaço.
                             </p>
+
                         </div>
 
                     </article>
@@ -740,12 +854,16 @@
                         </div>
 
                         <div>
-                            <h3>Explorar</h3>
+
+                            <h3>
+                                Explorar
+                            </h3>
 
                             <p>
                                 Abrimos espaço a sons, estilos e propostas que
                                 fogem ao circuito mais previsível.
                             </p>
+
                         </div>
 
                     </article>
@@ -758,12 +876,16 @@
                         </div>
 
                         <div>
-                            <h3>Avançar</h3>
+
+                            <h3>
+                                Avançar
+                            </h3>
 
                             <p>
                                 Estamos atentos ao que está a acontecer agora —
                                 e ao que pode definir o que vem depois.
                             </p>
+
                         </div>
 
                     </article>
@@ -779,7 +901,10 @@
              PLAYER
         ========================= -->
 
-        <section class="player-section" id="player">
+        <section
+            class="player-section"
+            id="player"
+        >
 
             <div class="container">
 
@@ -796,8 +921,11 @@
                     <div class="player-top">
 
                         <div class="live-status">
+
                             <span class="live-dot"></span>
+
                             Em direto
+
                         </div>
 
                         <div class="player-label">
@@ -810,26 +938,63 @@
                     <div class="player-main">
 
                         <button
+                            id="playerButton"
                             class="player-button"
-                            onclick="playRadio()"
+                            onclick="toggleRadio()"
                             aria-label="Ouvir FILTRO FM"
                         >
-                            <span class="play-icon"></span>
+
+                            <span
+                                id="playIcon"
+                                class="play-icon"
+                            ></span>
+
                         </button>
+
 
                         <div class="track-info">
 
-                            <small>FILTRO FM</small>
+                            <small>
+                                FILTRO FM
+                            </small>
 
-                            <h3>O futuro não toca sozinho.</h3>
+                            <h3 id="playerTitle">
+                                Uma escolha diferente.
+                            </h3>
 
-                            <p>
-                                A rádio que procura o que vem a seguir.
+                            <p id="playerStatus">
+                                Clica para ouvir em direto.
                             </p>
 
                         </div>
 
                     </div>
+
+
+                    <div class="volume-area">
+
+                        <span class="volume-icon">
+                            🔊
+                        </span>
+
+                        <input
+                            id="volume"
+                            class="volume-slider"
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.01"
+                            value="0.85"
+                            aria-label="Volume"
+                        >
+
+                    </div>
+
+
+                    <div
+                        id="playerMessage"
+                        class="player-message"
+                    ></div>
 
                 </div>
 
@@ -863,13 +1028,15 @@
                         </div>
 
                         <div>
+
                             <div class="track-title">
                                 A descobrir...
                             </div>
 
                             <div class="track-artist">
-                                Novo artista
+                                Em breve
                             </div>
+
                         </div>
 
                         <div class="track-time">
@@ -886,13 +1053,15 @@
                         </div>
 
                         <div>
+
                             <div class="track-title">
                                 A explorar...
                             </div>
 
                             <div class="track-artist">
-                                Novo projeto
+                                Em breve
                             </div>
+
                         </div>
 
                         <div class="track-time">
@@ -909,13 +1078,15 @@
                         </div>
 
                         <div>
+
                             <div class="track-title">
                                 A avançar...
                             </div>
 
                             <div class="track-artist">
-                                Novo som
+                                Em breve
                             </div>
+
                         </div>
 
                         <div class="track-time">
@@ -1007,35 +1178,321 @@
 
 
     <!-- =========================
-         JAVASCRIPT
+         AUDIO PLAYER
     ========================= -->
+
+    <audio
+        id="radioStream"
+        preload="none"
+        crossorigin="anonymous"
+    ></audio>
+
 
     <script>
 
-        function scrollToPlayer() {
+        /*
+         * FILTRO FM
+         *
+         * Stream SonicPanel
+         */
+
+        const STREAM_URL =
+            "https://radio.sonicpanel.ro/0/stream";
+
+
+        const audio =
+            document.getElementById("radioStream");
+
+        const playerButton =
+            document.getElementById("playerButton");
+
+        const playIcon =
+            document.getElementById("playIcon");
+
+        const playerTitle =
+            document.getElementById("playerTitle");
+
+        const playerStatus =
+            document.getElementById("playerStatus");
+
+        const playerMessage =
+            document.getElementById("playerMessage");
+
+        const volume =
+            document.getElementById("volume");
+
+
+        let isPlaying = false;
+
+
+        /*
+         * Volume inicial
+         */
+
+        audio.volume =
+            parseFloat(volume.value);
+
+
+        volume.addEventListener(
+            "input",
+            function () {
+
+                audio.volume =
+                    parseFloat(this.value);
+
+            }
+        );
+
+
+        /*
+         * Iniciar rádio
+         */
+
+        async function startRadio() {
+
             document
                 .getElementById("player")
                 .scrollIntoView({
                     behavior: "smooth"
                 });
+
+
+            if (!isPlaying) {
+
+                await toggleRadio();
+
+            }
+
         }
 
 
-        function playRadio() {
+        /*
+         * Play / Pause
+         */
 
-            /*
-             * FUTURO PLAYER
-             *
-             * Aqui vamos ligar o botão ao stream real
-             * do SonicPanel.
-             *
-             * Por enquanto, o botão apenas mostra
-             * uma mensagem temporária.
-             */
+        async function toggleRadio() {
 
-            alert(
-                "O player FILTRO FM será ligado ao stream SonicPanel na próxima etapa."
-            );
+            clearMessage();
+
+
+            if (!isPlaying) {
+
+                try {
+
+                    /*
+                     * Só definimos o stream
+                     * quando o utilizador carrega Play.
+                     */
+
+                    if (
+                        !audio.src ||
+                        audio.src !== STREAM_URL
+                    ) {
+
+                        audio.src =
+                            STREAM_URL;
+
+                    }
+
+
+                    playerStatus.textContent =
+                        "A ligar à emissão...";
+
+
+                    await audio.play();
+
+
+                    isPlaying = true;
+
+                    updatePlayerUI();
+
+
+                } catch (error) {
+
+                    console.error(
+                        "FILTRO FM player:",
+                        error
+                    );
+
+
+                    playerStatus.textContent =
+                        "Não foi possível iniciar a emissão.";
+
+                    showMessage(
+                        "O navegador não conseguiu iniciar o stream. Tenta novamente.",
+                        true
+                    );
+
+                }
+
+            } else {
+
+                audio.pause();
+
+                isPlaying = false;
+
+                updatePlayerUI();
+
+            }
+
+        }
+
+
+        /*
+         * Interface do player
+         */
+
+        function updatePlayerUI() {
+
+            if (isPlaying) {
+
+                playerButton.classList.add(
+                    "playing"
+                );
+
+
+                playIcon.outerHTML = `
+                    <span
+                        id="playIcon"
+                        class="pause-icon"
+                        aria-hidden="true"
+                    >
+                        <span></span>
+                        <span></span>
+                    </span>
+                `;
+
+
+                playerTitle.textContent =
+                    "FILTRO FM";
+
+                playerStatus.textContent =
+                    "Em direto — a emissão está a tocar.";
+
+
+            } else {
+
+                playerButton.classList.remove(
+                    "playing"
+                );
+
+
+                playIcon.outerHTML = `
+                    <span
+                        id="playIcon"
+                        class="play-icon"
+                        aria-hidden="true"
+                    ></span>
+                `;
+
+
+                playerTitle.textContent =
+                    "Uma escolha diferente.";
+
+                playerStatus.textContent =
+                    "Clica para ouvir em direto.";
+
+            }
+
+        }
+
+
+        /*
+         * Eventos do áudio
+         */
+
+        audio.addEventListener(
+            "playing",
+            function () {
+
+                isPlaying = true;
+
+                updatePlayerUI();
+
+                clearMessage();
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "pause",
+            function () {
+
+                if (isPlaying) {
+
+                    isPlaying = false;
+
+                    updatePlayerUI();
+
+                }
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "waiting",
+            function () {
+
+                if (isPlaying) {
+
+                    playerStatus.textContent =
+                        "A receber a emissão...";
+
+                }
+
+            }
+        );
+
+
+        audio.addEventListener(
+            "error",
+            function () {
+
+                isPlaying = false;
+
+                updatePlayerUI();
+
+                playerStatus.textContent =
+                    "Problema ao ligar à emissão.";
+
+                showMessage(
+                    "Não foi possível ligar ao stream da FILTRO FM.",
+                    true
+                );
+
+            }
+        );
+
+
+        /*
+         * Mensagens
+         */
+
+        function showMessage(
+            message,
+            error = false
+        ) {
+
+            playerMessage.textContent =
+                message;
+
+            playerMessage.className =
+                error
+                    ? "player-message error"
+                    : "player-message";
+
+        }
+
+
+        function clearMessage() {
+
+            playerMessage.textContent = "";
+
+            playerMessage.className =
+                "player-message";
+
         }
 
     </script>
